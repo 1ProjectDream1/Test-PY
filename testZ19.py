@@ -7,12 +7,13 @@
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 dict2 = {'b': 3, 'c': 1, 'd': 5}
 
-resultList = {}
+buffer_dict1 = dict1.copy()
+print(buffer_dict1)
 
-for i,ii in dict1.items():
-    for j, jj in dict2.items():
-        if i in dict2:
-            resultList[i] = ii + jj
-print(resultList)
-        
-    
+for i, j in dict2.items():
+    if i in buffer_dict1:
+        buffer_dict1[i] += j
+    else:
+        buffer_dict1[i] = j
+
+print(buffer_dict1)
